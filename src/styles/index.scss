@@ -1,0 +1,20 @@
+@use 'reset';
+@use 'vars';
+
+body {
+  margin: 0.5rem;
+  background-color: black;
+  font-family: 'Sono', sans-serif;
+}
+
+/* 
+  // or you can import your own font
+  @font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/Roboto-Regular.ttf');
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+*/
