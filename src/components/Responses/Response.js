@@ -3,10 +3,21 @@ import './styles.scss';
 
 function Response({ author, command, response }) {
   return (
-    <div>
+    <section>
       <span className="author--span">{author}</span>
       {command}
-    </div>
+      <table>
+        <tbody>
+          {
+            response.map((item) => (
+              <tr key={item.command}>
+                <td>{item.command}</td><td>{item.text}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </section>
   );
 }
 

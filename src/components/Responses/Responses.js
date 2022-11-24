@@ -12,7 +12,12 @@ function Responses({ responsesArray }) {
 }
 
 Responses.propTypes = {
-  responsesArray: PropTypes.arrayOf(PropTypes.object).isRequired,
+  responsesArray: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    author: PropTypes.string.isRequired,
+    command: PropTypes.string.isRequired,
+    response: PropTypes.array.isRequired,
+  })).isRequired,
 };
 
 export default Responses;

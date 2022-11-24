@@ -1,12 +1,26 @@
 import { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { searchCommand, getNewId } from '../../utils/utils';
+import './styles.scss';
 
-function CommandLine({ inputValue, setInputValue }) {
+function CommandLine({
+  inputValue, setInputValue, setResponsesArray, responsesArray,
+}) {
   const commandLineRef = useRef();
   useEffect(() => commandLineRef.current.focus(), []);
 
   const handleSubmitCommand = (e) => {
     e.preventDefault();
+    searchCommand('fr', inputValue);
+    setResponsesArray([
+      ...responsesArray,
+      {
+        id: getNewId(responsesArray),
+        author: 'Maxime@Lefranc>',
+        command: inputValue,
+        response: searchCommand('fr', inputValue),
+      },
+    ]);
     setInputValue('');
   };
 
@@ -23,6 +37,8 @@ function CommandLine({ inputValue, setInputValue }) {
 CommandLine.propTypes = {
   inputValue: PropTypes.string.isRequired,
   setInputValue: PropTypes.func.isRequired,
+  setResponsesArray: PropTypes.func.isRequired,
+  responsesArray: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default CommandLine;

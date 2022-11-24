@@ -1,7 +1,24 @@
-function Header() {
+import PropTypes from 'prop-types';
+import './styles.scss';
+
+function Header({ lang }) {
   return (
-    <p>Welcome to my online CV! Type 'help' to discover how to start.</p>
+    <p className="header">
+      {
+        (lang === 'fr')
+          ? 'Bienvenue sur mon CV en ligne! Tape \'help\' pour découvrir comment démarrer.'
+          : 'Welcome to my online CV! Type \'help\' to discover how to start.'
+      }
+    </p>
   );
 }
+
+Header.propTypes = {
+  lang: PropTypes.string,
+};
+
+Header.defaultProps = {
+  lang: 'fr',
+};
 
 export default Header;
