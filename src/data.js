@@ -9,8 +9,19 @@ export default {
       { command: 'ls', text: 'montre les catégories de mon CV' },
       { command: 'cat \'categorie\'', text: 'ouvre le contenu des categories' },
     ],
-    ls: [],
-
+    ls: [
+      { command: 'Profile', text: '' },
+      { command: 'Education', text: '' },
+      { command: 'Competences', text: '' },
+      { command: 'Experiences', text: '' },
+      { command: 'Contact', text: '' },
+    ],
+    profile: [
+      { command: 'Name:', text: 'Maxime Lefranc' },
+      { command: 'Birthdate:', text: '05-12-1990' },
+      { command: 'Email:', text: '<a href="mailto:maxilefranc@gmail.com">maxilefranc@gmail.com</a>' },
+      { command: 'Nationality:', text: 'Français' },
+    ],
   },
   en: {},
 };

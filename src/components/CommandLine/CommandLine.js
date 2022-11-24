@@ -8,10 +8,12 @@ function CommandLine({
 }) {
   const commandLineRef = useRef();
   useEffect(() => commandLineRef.current.focus(), []);
+  useEffect(() => {
+    commandLineRef.current.scrollIntoView({ behavior: 'smooth' });
+  });
 
   const handleSubmitCommand = (e) => {
     e.preventDefault();
-    searchCommand('fr', inputValue);
     setResponsesArray([
       ...responsesArray,
       {
@@ -28,7 +30,7 @@ function CommandLine({
     <form onSubmit={handleSubmitCommand}>
       <p>
         <span>Maxime@Lefranc{'>'}</span>
-        <input type="text" ref={commandLineRef} value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+        <input type="text" ref={commandLineRef} value={inputValue} onChange={(e) => setInputValue(e.target.value.toLowerCase())} />
       </p>
     </form>
   );
