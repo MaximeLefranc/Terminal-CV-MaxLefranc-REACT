@@ -14,6 +14,10 @@ export function searchCommand(lang, inputValue) {
       return data[lang].ls;
     case 'cat profile':
       return data[lang].profile;
+    case 'cat education':
+      return data[lang].education;
+    case 'cat competences':
+      return data[lang].competences;
     case 'github': {
       window.open('https://github.com/MaximeLefranc?tab=repositories');
       return [];

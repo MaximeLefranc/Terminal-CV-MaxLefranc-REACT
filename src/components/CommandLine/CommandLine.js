@@ -14,15 +14,20 @@ function CommandLine({
 
   const handleSubmitCommand = (e) => {
     e.preventDefault();
-    setResponsesArray([
-      ...responsesArray,
-      {
-        id: getNewId(responsesArray),
-        author: 'Maxime@Lefranc>',
-        command: inputValue,
-        response: searchCommand('fr', inputValue),
-      },
-    ]);
+    if (inputValue === 'clear') {
+      setResponsesArray([]);
+    }
+    else {
+      setResponsesArray([
+        ...responsesArray,
+        {
+          id: getNewId(responsesArray),
+          author: 'Maxime@Lefranc>',
+          command: inputValue,
+          response: searchCommand('fr', inputValue),
+        },
+      ]);
+    }
     setInputValue('');
   };
 
