@@ -8,6 +8,7 @@ function Terminal() {
   const [inputValue, setInputValue] = useState(''); // 1
   const [responsesArray, setResponsesArray] = useState([]); // 2
   const [lang, setLang] = useState('en'); // 3
+  const [commands, setCommands] = useState([]); // 4
   return (
     <div className="app">
       <Header lang={lang} />
@@ -19,6 +20,8 @@ function Terminal() {
         responsesArray={responsesArray}
         lang={lang}
         setLang={setLang}
+        commands={commands}
+        setCommands={setCommands}
       />
     </div>
   );

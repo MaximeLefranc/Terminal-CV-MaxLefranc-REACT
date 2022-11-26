@@ -4,25 +4,49 @@ import { searchCommand, getNewId } from '../../utils/utils';
 import './styles.scss';
 
 function CommandLine({
-  inputValue, setInputValue, setResponsesArray, responsesArray, lang, setLang,
+  inputValue,
+  setInputValue,
+  setResponsesArray,
+  responsesArray,
+  lang,
+  setLang,
+  commands,
+  setCommands,
 }) {
   const commandLineRef = useRef();
-  useEffect(() => commandLineRef.current.focus(), []);
+  // let count = useRef(commands.length);
+  useEffect(() => {
+    commandLineRef.current.focus();
+    // window.addEventListener('keydown', handleSavedCommand);
+  }, []);
   useEffect(() => {
     commandLineRef.current.scrollIntoView({ behavior: 'smooth' });
   });
 
+  // const handleSavedCommand = (e) => {
+  //   if (e.code === 'ArrowUp') {
+  //     console.log(count.current, commands);
+  //     setInputValue(commands[count.current]);
+  //     count = count.current - 1;
+  //   }
+  //   if (e.code === 'ArrowDown') {}
+  // };
   const handleSubmitCommand = (e) => {
     e.preventDefault();
+    if (inputValue !== '') {
+      setCommands([
+        ...commands,
+        inputValue,
+      ]);
+    }
+    console.log(commands);
     if (inputValue === 'clear') {
       setResponsesArray([]);
     }
     else if (inputValue === 'lang fr') {
-      console.log('lang fr');
       setLang('fr');
     }
     else if (inputValue === 'lang en') {
-      console.log('lang en');
       setLang('en');
     }
     else {
@@ -56,6 +80,8 @@ CommandLine.propTypes = {
   responsesArray: PropTypes.arrayOf(PropTypes.object).isRequired,
   lang: PropTypes.string.isRequired,
   setLang: PropTypes.func.isRequired,
+  commands: PropTypes.arrayOf(PropTypes.string).isRequired,
+  setCommands: PropTypes.func.isRequired,
 };
 
 export default CommandLine;
