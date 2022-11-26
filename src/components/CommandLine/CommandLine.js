@@ -4,7 +4,7 @@ import { searchCommand, getNewId } from '../../utils/utils';
 import './styles.scss';
 
 function CommandLine({
-  inputValue, setInputValue, setResponsesArray, responsesArray,
+  inputValue, setInputValue, setResponsesArray, responsesArray, lang, setLang,
 }) {
   const commandLineRef = useRef();
   useEffect(() => commandLineRef.current.focus(), []);
@@ -17,6 +17,14 @@ function CommandLine({
     if (inputValue === 'clear') {
       setResponsesArray([]);
     }
+    else if (inputValue === 'lang fr') {
+      console.log('lang fr');
+      setLang('fr');
+    }
+    else if (inputValue === 'lang en') {
+      console.log('lang en');
+      setLang('en');
+    }
     else {
       setResponsesArray([
         ...responsesArray,
@@ -24,7 +32,7 @@ function CommandLine({
           id: getNewId(responsesArray),
           author: 'Maxime@Lefranc>',
           command: inputValue,
-          response: searchCommand('fr', inputValue),
+          response: searchCommand(lang, inputValue),
         },
       ]);
     }
@@ -46,6 +54,8 @@ CommandLine.propTypes = {
   setInputValue: PropTypes.func.isRequired,
   setResponsesArray: PropTypes.func.isRequired,
   responsesArray: PropTypes.arrayOf(PropTypes.object).isRequired,
+  lang: PropTypes.string.isRequired,
+  setLang: PropTypes.func.isRequired,
 };
 
 export default CommandLine;

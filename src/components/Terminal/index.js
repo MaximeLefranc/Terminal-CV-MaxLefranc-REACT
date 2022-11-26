@@ -7,15 +7,18 @@ import './styles.scss';
 function Terminal() {
   const [inputValue, setInputValue] = useState(''); // 1
   const [responsesArray, setResponsesArray] = useState([]); // 2
+  const [lang, setLang] = useState('en'); // 3
   return (
     <div className="app">
-      <Header />
+      <Header lang={lang} />
       <Responses responsesArray={responsesArray} />
       <CommandLine
         inputValue={inputValue}
         setInputValue={setInputValue}
         setResponsesArray={setResponsesArray}
         responsesArray={responsesArray}
+        lang={lang}
+        setLang={setLang}
       />
     </div>
   );

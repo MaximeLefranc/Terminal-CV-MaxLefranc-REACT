@@ -18,6 +18,10 @@ export function searchCommand(lang, inputValue) {
       return data[lang].education;
     case 'cat competences':
       return data[lang].competences;
+    case 'cat experiences':
+      return data[lang].experiences;
+    case 'cat contact':
+      return data[lang].contact;
     case 'github': {
       window.open('https://github.com/MaximeLefranc?tab=repositories');
       return [];

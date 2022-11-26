@@ -14,11 +14,7 @@ function Header({ lang }) {
 }
 
 Header.propTypes = {
-  lang: PropTypes.string,
-};
-
-Header.defaultProps = {
-  lang: 'fr',
+  lang: PropTypes.string.isRequired,
 };
 
 export default Header;
