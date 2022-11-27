@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { searchCommand, getNewId } from '../../utils/utils';
 import './styles.scss';
@@ -12,34 +12,62 @@ function CommandLine({
   setLang,
   commands,
   setCommands,
+  count,
+  setCount,
 }) {
   const commandLineRef = useRef();
-  // let count = useRef(commands.length);
+
+  const handleSavedCommand = useCallback((e) => {
+    if (e.code === 'ArrowUp') {
+      e.preventDefault();
+      if (commands.length > 0) {
+        if (count < commands.length) {
+          setCount(count + 1);
+          setInputValue(commands[count]);
+        }
+      }
+    }
+    if (e.code === 'ArrowDown') {
+      e.preventDefault();
+      if (commands.length > 0) {
+        if (count > 0 && count <= commands.length) {
+          if (count === commands.length) {
+            setInputValue(commands[count - 2]);
+            setCount(count - 2);
+          }
+          else {
+            setInputValue(commands[count - 1]);
+            setCount(count - 1);
+          }
+        }
+        else {
+          setInputValue('');
+        }
+      }
+    }
+  });
+
   useEffect(() => {
     commandLineRef.current.focus();
-    // window.addEventListener('keydown', handleSavedCommand);
   }, []);
+  useEffect(() => {
+    window.addEventListener('keydown', handleSavedCommand);
+    return () => {
+      window.removeEventListener('keydown', handleSavedCommand);
+    };
+  }, [count, commands]);
   useEffect(() => {
     commandLineRef.current.scrollIntoView({ behavior: 'smooth' });
   });
 
-  // const handleSavedCommand = (e) => {
-  //   if (e.code === 'ArrowUp') {
-  //     console.log(count.current, commands);
-  //     setInputValue(commands[count.current]);
-  //     count = count.current - 1;
-  //   }
-  //   if (e.code === 'ArrowDown') {}
-  // };
   const handleSubmitCommand = (e) => {
     e.preventDefault();
     if (inputValue !== '') {
       setCommands([
-        ...commands,
         inputValue,
+        ...commands,
       ]);
     }
-    console.log(commands);
     if (inputValue === 'clear') {
       setResponsesArray([]);
     }
@@ -60,6 +88,7 @@ function CommandLine({
         },
       ]);
     }
+    setCount(0);
     setInputValue('');
   };
 
@@ -82,6 +111,8 @@ CommandLine.propTypes = {
   setLang: PropTypes.func.isRequired,
   commands: PropTypes.arrayOf(PropTypes.string).isRequired,
   setCommands: PropTypes.func.isRequired,
+  count: PropTypes.number.isRequired,
+  setCount: PropTypes.func.isRequired,
 };
 
 export default CommandLine;
