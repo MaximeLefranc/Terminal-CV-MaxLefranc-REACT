@@ -11,7 +11,7 @@ function Terminal() {
   const [commands, setCommands] = useState([]); // 4
   const [count, setCount] = useState(0); // 5
   return (
-    <div className="app">
+    <section className="app">
       <Header lang={lang} />
       <Responses responsesArray={responsesArray} />
       <CommandLine
@@ -26,7 +26,7 @@ function Terminal() {
         count={count}
         setCount={setCount}
       />
-    </div>
+    </section>
   );
 }
 
