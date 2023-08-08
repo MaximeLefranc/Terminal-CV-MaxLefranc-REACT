@@ -8,6 +8,9 @@
     "clean": "rm -rf dist",
     "clean:all": "rm -rf dist node_modules yarn.lock package-lock.json"
   },
+  "prettier": {
+    "singleQuote": true
+  },
   "devDependencies": {
     "@babel/core": "^7.19.6",
     "@babel/eslint-parser": "^7.19.1",
