@@ -54,7 +54,7 @@ export default {
       },
     ],
     experiences: [
-      { command: 'ETIENNE', text: '2023 / Now - Web Developer - (Remote)' },
+      { command: 'ETIENNE', text: '2022 / 2023 - Web Developer - (Remote)' },
       {
         command: "Troc'Services",
         text: '<a target="_blank" href="https://trocservices.fr">Lien vers Troc\'Services</a>',
@@ -171,7 +171,7 @@ export default {
     experiences: [
       {
         command: 'ETIENNE',
-        text: '2023 / Maintenant - Développeur Web - (Remote)',
+        text: '2022 / 2023 - Développeur Web - (Remote)',
       },
       {
         command: "Troc'Services",
