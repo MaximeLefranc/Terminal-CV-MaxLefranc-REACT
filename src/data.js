@@ -57,7 +57,7 @@ export default {
       { command: 'ETIENNE', text: '2022 / 2023 - Web Developer - (Remote)' },
       {
         command: "Troc'Services",
-        text: '<a target="_blank" href="https://trocservices.fr">Lien vers Troc\'Services</a>',
+        text: '2022 - Community site for exchanging services between private individuals. ',
       },
       {
         command: 'Projets perso',
@@ -175,7 +175,7 @@ export default {
       },
       {
         command: "Troc'Services",
-        text: '<a target="_blank" href="https://trocservices.fr">Link to Troc\'Services</a>',
+        text: "2022 - Site communautaire d'échange de services entre particuliers",
       },
       {
         command: 'Personal projects',
