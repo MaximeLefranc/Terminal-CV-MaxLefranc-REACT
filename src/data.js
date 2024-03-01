@@ -172,7 +172,7 @@ export default {
     experiences: [
       {
         command: 'FFSA - La Foir\'Fouille',
-        text: '2024 / Now - Développeur Web Full STack',
+        text: '2024 / Now - Développeur Web Full Stack',
       },
       {
         command: 'ETIENNE',
