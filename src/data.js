@@ -54,6 +54,7 @@ export default {
       },
     ],
     experiences: [
+      { command: 'FFSA', text: '2024 / now - Web Developer Full Stack - (France)' },
       { command: 'ETIENNE', text: '2022 / 2023 - Web Developer - (Remote)' },
       {
         command: "Troc'Services",
@@ -169,6 +170,10 @@ export default {
       },
     ],
     experiences: [
+      {
+        command: 'FFSA - La Foir\'Fouille',
+        text: '2024 / Now - Développeur Web Full STack',
+      },
       {
         command: 'ETIENNE',
         text: '2022 / 2023 - Développeur Web - (Remote)',
